@@ -1,21 +1,45 @@
 #include "Product.h"
 
-#ifndef PHONE_H
-#define PHONE_H
-class phone : public product
+#ifndef PC_H
+#define PC_H
+class pc : public product
 {
     private:
     string ScreenResolution;
     string Storage;   
+
     public:
-    phone(string M,string B,float P,int R,int S)
+    pc(string M,string B,float P,int R,int S)
     {
-        string resolution = string(R + " Inches");
-        this->ScreenResolution = resolution;
-        string st = string(S + " GB");
         product(M,B,P);
+        string resolution = to_string(R)+" Inches";
+        this->ScreenResolution = resolution;
+        string st = to_string(S)+" GB";
+        this->Storage = st;
     }
 
-    phoneAu
+
+    string getResolution()
+    {
+        return this->ScreenResolution;
+    }
+
+    string getStorage()
+    {
+        return this->Storage;
+    }
+
+
+    void getInfo()
+    {
+         cout << "Brand:        " << this->getBrand() << "\n";
+           cout << "Model:        " << this->getModel() << "\n";
+           cout << "Price:        " << this->getPrice() << "\n";
+           cout << "Resolution:         " << this->ScreenResolution << "\n";
+           cout << "Storage:         " << this->Storage << "\n";
+           cout << endl << "**********************************" << endl;
+    }
+    pc(){}
+
 };
 #endif

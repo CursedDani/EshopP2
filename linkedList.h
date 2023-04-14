@@ -1,7 +1,8 @@
 #include "Node.h"
-#include "tv.h"
 #include "phone.h"
+#include "tv.h"
 #include "pc.h"
+
 
 #ifndef LIST_H
 #define LIST_H
@@ -15,22 +16,69 @@ class linkedList
 
     void showList()
     {
-        Node *current = head;
-    if (head == NULL) {
+    if (head->data == nullptr)  {
       cout << "\n";
       cout << "The list is empty\n";
     }
-    while (current != NULL) {
-
-      cout << "\n"
-
-           << "Brand:         " << string(current->data->getBrand()) << "\n"
-           << "Model:           " << string(current->data->getModel()) << "\n"
-           << "Price:        " << string(current->data->getPrice()) << "\n"
-           << endl;
-      current = current->next;
-      
+    else
+    {
+    Node *current = head;
+    
+    while (current != nullptr) {
+          current->data->getInfo();
+          cout << current->data->getBrand() << endl;
+      current = current->next;  
+    }
+    
     } 
     }
-};
-#ednif
+  
+    void addItem(product *p)
+    {
+      if (head == nullptr)
+      {
+        head = new Node(p);
+        this->size++;
+      }
+      else
+      {
+        Node *current = head;
+        while (current->next!=nullptr)
+        {
+          current = current->next;
+        }
+        current->next = new Node(p);
+      }
+      cout << "product added successfully!"<<endl;
+    }
+
+    void deleteItem(product* p)
+    {
+      if (head==nullptr)
+      {
+        cout << "\nThere are no items to delete" << endl;
+      }
+      else
+      {
+        Node* prev = nullptr;
+        Node* current = head;
+        while (current!=nullptr)
+        {
+          if (current->data == p)
+          {
+            prev->next = current->next;
+            delete current;
+            cout << "Item deleted succesfully"<<endl;
+          }
+          else
+          {
+            prev = current;
+            current = current->next;
+            cout << "The item has not been found" << endl;
+          }
+        }
+        }
+      }
+    };
+
+#endif

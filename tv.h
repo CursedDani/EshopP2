@@ -10,9 +10,17 @@ class tv : public product
     public:
     tv(string M,string B,float P,int R)
     {
-        string resolution = string(R + " Inches");
+        string resolution = to_string(R)+" GB";
         this->ScreenResolution = resolution;
-        product(M,B,P);
+    }
+
+    void getInfo()
+    {
+         cout << "Brand:        " << this->getBrand()     << "\n";
+           cout << "Model:        " << this->getModel() << "\n";
+           cout << "Price:        " << this->getPrice() << "\n";
+           cout << "Resolution:         " << this->ScreenResolution << "\n";
+           cout << endl << "**********************************" << endl;
     }
 
     tv(){}

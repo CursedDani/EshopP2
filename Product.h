@@ -5,7 +5,7 @@ using namespace std;
 #define PRODUCT_H
 class product
 {
-    protected:
+    private:
         string Model;
         float Price;
         string Brand;
@@ -19,7 +19,23 @@ class product
         this->Price = P;
     }   
 
+    string getBrand(){return this->Brand;};
+
+    float getPrice(){return this->Price;};
+
+    string getModel(){return this->Model;};
+
+    virtual string getResolution(){return "";};
+    virtual string getStorage(){return "";};
+    virtual void getInfo()
+    {
+           cout << "Brand:        " << this->Brand << "\n";
+           cout << "Model:        " << this->Model << "\n";
+           cout << "Price:        " << this->Price << "\n";
+           cout << endl << "**********************************" << endl;
+    };
     product(){}
 
 };
+
 #endif

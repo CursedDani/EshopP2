@@ -9,8 +9,8 @@ public:
   Node *next;
 
   Node(product *d) {
-    this->data = data;
-    this->next = NULL;
+    this->data = d;
+    this->next = nullptr;
   }
 };
 #endif

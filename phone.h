@@ -10,28 +10,13 @@ class phone : public product
     public:
     phone(string M,string B,float P,int R,int S)
     {
-        string resolution = string(R + " Inches");
-        this->ScreenResolution = resolution;
-        string st = string(S + " GB");
         product(M,B,P);
+        this->ScreenResolution = to_string(R)+" Inches";
+        this->Storage= to_string(S)+" GB";
     }
 
-    string getBrand()
-    {
-        return this->Brand;
-    }
 
-    string getModel()
-    {
-        return this->Model;
-    }
-
-    float getPrice()
-    {
-        return this->Price;
-    }
-
-    string getRes()
+    string getResolution()
     {
         return this->ScreenResolution;
     }
@@ -39,6 +24,17 @@ class phone : public product
     string getStorage()
     {
         return this->Storage;
+    }
+
+
+    void getInfo()
+    {
+         cout << "Brand:        " << this->getBrand()<< "\n";
+           cout << "Model:        " << this->getModel() << "\n";
+           cout << "Price:        " << this->getPrice() << "\n";
+           cout << "Resolution:         " << this->ScreenResolution << "\n";
+           cout << "Storage:         " << this->Storage << "\n";
+           cout << endl << "**********************************" << endl;
     }
     phone(){}
 };
